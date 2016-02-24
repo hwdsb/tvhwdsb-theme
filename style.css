@@ -1,0 +1,36 @@
+/* 
+Theme Name:     Like Television
+Description:    Child theme for the TV Platform
+Author:         Jared Bennett
+Author URI:     http://mrjarbenne.ca
+Template:       gazette
+Version:        1.0
+*/
+
+body {
+	background: #1b62a2;
+}
+
+.main-navigation.toggled > div {
+	background: #fff;
+	border: 1px solid #ddd;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.075);
+	display: block;
+	position: absolute;
+	top: 100%;
+	margin-top: 15px;
+	width: 100%;
+	left: 0;
+	padding: 30px;
+	z-index: 9998;
+}
+
+a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+body, button, input, select, textarea {
+    color: #ffffff;
+}
