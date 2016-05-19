@@ -1,10 +1,13 @@
 /* 
-Theme Name:     Like Television
-Description:    Child theme for the TV Platform
-Author:         Jared Bennett
-Author URI:     http://mrjarbenne.ca
-Template:       gazette
-Version:        1.0
+Theme Name:  Like Television
+Theme URI:   https://github.com/hwdsbcommons/tvhwdsb-theme
+Description: Child theme for the TV Platform
+Version:     1.0
+Author:      Jared Bennett / r-a-y
+Template:    gazette
+Text Domain: tvhwdsb
+License:     GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
 body {
@@ -33,4 +36,50 @@ a {
 
 body, button, input, select, textarea {
     color: #ffffff;
+}
+
+.entry-summary {
+	margin-top: 10px;
+}
+
+.post-media embed, .post-media iframe, .post-media object, .post-media video {
+	max-height: none;
+}
+
+.vp_video .post-thumbnail {
+	min-height: 158px;
+}
+
+/* temporary */
+.vp_video .mejs-controls {
+	display: none;
+}
+
+.vp_video .post-thumbnail:before {
+	content: "\f219";
+	color: #fff;
+	display: block;
+	font-family: "dashicons";
+	font-size: 90px;
+	font-weight: normal;
+	margin-bottom: -135px;
+	position: relative;
+	text-align: center;
+	top: 15px;
+}
+
+.vp_video .post-thumbnail img {
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
+.post-thumbnail .duration {
+	background: #000;
+	bottom: 0;
+	font-size: 14px;
+	opacity: .8;
+	padding: 1px 4px;
+	position: absolute;
+	right: 0;
 }
