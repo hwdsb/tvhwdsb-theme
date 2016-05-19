@@ -74,6 +74,16 @@ body, button, input, select, textarea {
 	position: relative;
 }
 
+.post-thumbnail .duration {
+	background: #000;
+	bottom: 0;
+	font-size: 14px;
+	opacity: .8;
+	padding: 1px 4px;
+	position: absolute;
+	right: 0;
+}
+
 /* Replace #777 with something more complementary to our background */
 caption {
 color: #409AEE;
@@ -162,14 +172,4 @@ color: #409AEE;
 
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
 color: #409AEE;
-}
-
-.post-thumbnail .duration {
-	background: #000;
-	bottom: 0;
-	font-size: 14px;
-	opacity: .8;
-	padding: 1px 4px;
-	position: absolute;
-	right: 0;
 }
