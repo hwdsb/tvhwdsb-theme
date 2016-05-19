@@ -74,6 +74,96 @@ body, button, input, select, textarea {
 	position: relative;
 }
 
+/* Replace #777 with something more complementary to our background */
+caption {
+color: #409AEE;
+}
+
+.social-navigation a {
+color: #409AEE;
+}
+
+.post-navigation .meta-nav {
+color: #409AEE;
+}
+
+/* Recent Posts */
+.widget_recent_entries .post-date {
+color: #409AEE;
+}
+
+/* RSS */
+.widget_rss cite,
+.widget_rss .rss-date {
+color: #409AEE;
+}
+
+.footer-text {
+color: #409AEE;
+}
+
+.content-area .entry-meta {
+color: #409AEE;
+}
+
+.content-area .entry-meta a {
+color: #409AEE;
+}
+
+/* Entry Footer */
+.entry-footer {
+color: #409AEE;
+}
+
+.entry-footer a {
+color: #409AEE;
+}
+
+/* Page Links */
+.page-links {
+color: #409AEE;
+}
+
+.page-links > .page-links-title {
+color: #409AEE;
+}
+
+/* Author Info */
+.author-info .author-title {
+color: #409AEE;
+}
+
+.comment-list .comment-reply-title small,
+.comment-metadata,
+.comment-reply-link {
+color: #409AEE;
+}
+
+.comment-metadata a,
+.comment-list .comment-reply-title small a {
+color: #409AEE;
+}
+
+.wp-caption {
+color: #409AEE;
+}
+
+.gallery-caption {
+color: #409AEE;
+}
+
+#infinite-footer {
+color: #409AEE;
+}
+
+.site-content .jetpack-recipe .jetpack-recipe-meta {
+color: #409AEE;
+}
+
+.hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
+color: #409AEE;
+}
+
 .post-thumbnail .duration {
 	background: #000;
 	bottom: 0;
