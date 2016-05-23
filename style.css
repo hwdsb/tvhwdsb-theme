@@ -50,11 +50,6 @@ body, button, input, select, textarea {
 	min-height: 158px;
 }
 
-/* temporary */
-.vp_video .mejs-controls {
-	display: none;
-}
-
 .vp_video .post-thumbnail:before {
 	content: "\f219";
 	color: #fff;

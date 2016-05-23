@@ -18,16 +18,25 @@ function hwdsb_vp_the_video() {
 	switch( $source ) {
 		case 'local' :
 		case 'vimeo' :
-			$content = '[video src="https://vimeo.com/' . $meta['vp_video_id'][0] . '"]';
+			if ( true === function_exists( 'mexp_vimeo_get_shortcode_tag' ) ) {
+				$content = '[' . mexp_vimeo_get_shortcode_tag() . ' id="' . $meta['vp_video_id'][0] . '"]';
+				$media = do_shortcode( $content );
+
+			// Old way.
+			} else {
+				$content = '[video src="https://vimeo.com/' . $meta['vp_video_id'][0] . '"]';
+
+				$content = apply_filters( 'the_content', $content );
+				$media = get_media_embedded_in_content( $content, array( 'video', 'object', 'embed', 'iframe' ) );
+				if ( ! empty( $media ) ) {
+					$media = $media[0];
+				}
+			}
 			break;
 	}
 
-	$content = apply_filters( 'the_content', $content );
-	$media = get_media_embedded_in_content( $content, array( 'video', 'object', 'embed', 'iframe' ) );
 	if ( ! empty( $media ) ) {
-		printf( '<div class="post-media jetpack-video-wrapper">%s</div>', $media[0] );
-	} else {
-		return;
+		printf( '<div class="post-media jetpack-video-wrapper">%s</div>', $media );
 	}
 }
 
@@ -50,6 +59,22 @@ function hwdsb_tv_after_setup_theme() {
 	remove_filter( 'the_excerpt', 'gazette_continue_reading', 9 );
 }
 add_action( 'after_setup_theme', 'hwdsb_tv_after_setup_theme' );
+
+/**
+ * Override content width from parent theme, Gazette.
+ */
+function gazette_content_width() {
+	global $content_width;
+
+	// 644 is content width with sidebar.
+	if ( is_singular() && ! is_page() ) {
+		$content_width = 644;
+
+	// @todo Why is this set to 869?
+	} elseif ( is_page() ) {
+		$content_width = 869;
+	}
+}
 
 /**
  * Enqueue scripts and styles.
