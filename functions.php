@@ -149,5 +149,13 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 }
 add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
 
+// Add Jetpack Related Post Functionality to the VP_Video CPT
+
+function allow_my_post_types($allowed_post_types) {
+    $allowed_post_types[] = 'vp_video';
+    return $allowed_post_types;
+}
+add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
+
 // @todo Perhaps change the /author/ slug to something else?
 // @link http://wordpress.stackexchange.com/a/82219
