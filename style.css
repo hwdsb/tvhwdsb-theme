@@ -34,6 +34,24 @@ a {
     text-decoration: none;
 }
 
+/*
+ * 'Add Media' button doesn't work if 'table {border-collapse: collapse}'.
+ *
+ * This is due to WP 4.5 upgrading jQuery to a version that exposed this bug.
+ * This could be fixed by upgrading to WP 4.5.3, which upgrades jQuery or if
+ * we change our CSS.  We're going with the CSS fix for now.
+ *
+ * See the following for more info:
+ * https://core.trac.wordpress.org/ticket/36533#comment:3
+ */
+table {
+	border-collapse: separate;
+}
+#primary table,
+#tertiary table, {
+	border-collapse: collapse;
+}
+
 #primary, #tertiary {
     color: #fff;
 }
