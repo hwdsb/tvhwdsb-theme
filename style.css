@@ -34,8 +34,8 @@ a {
     text-decoration: none;
 }
 
-body, button, input, select, textarea {
-    color: #ffffff;
+#primary, #tertiary {
+    color: #fff;
 }
 
 .entry-summary {
