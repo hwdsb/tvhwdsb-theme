@@ -71,6 +71,8 @@ function hwdsb_vp_the_video_metadata() {
  */
 function hwdsb_tv_after_setup_theme() {
 	remove_filter( 'the_excerpt', 'gazette_continue_reading', 9 );
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+	remove_action( 'wp_enqueue_scripts', 'gazette_post_nav_background' );
 }
 add_action( 'after_setup_theme', 'hwdsb_tv_after_setup_theme' );
 
