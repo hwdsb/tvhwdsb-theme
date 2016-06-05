@@ -151,6 +151,25 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 }
 add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
 
+// Add Fallback Featured Image if one doesn't exist already
+
+function jeherve_custom_image( $media, $post_id, $args ) {
+    if ( $media ) {
+        return $media;
+    } else {
+        $permalink = get_permalink( $post_id );
+        $url = apply_filters( 'jetpack_photon_url', '/images/hwdsbtv-preview-replace.png' );
+     
+        return array( array(
+            'type'  => 'image',
+            'from'  => 'custom_fallback',
+            'src'   => esc_url( $url ),
+            'href'  => $permalink,
+        ) );
+    }
+}
+add_filter( 'jetpack_images_get_images', 'jeherve_custom_image', 10, 3 );
+
 // Add Jetpack Related Post Functionality to the VP_Video CPT
 
 function allow_my_post_types($allowed_post_types) {
