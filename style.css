@@ -101,16 +101,12 @@ h2 {
 	right: 0;
 }
 
-/* Replace #777 with something more complementary to our background */
+/* Replace #777 with something more complementary to our background. Will need to clean this up as some are probably superfluous */
 caption {
 color: #BCDEFF;
 }
 
-.social-navigation a {
-color: #BCDEFF;
-}
-
-.post-navigation .meta-nav {
+.social-navigation a, .post-navigation .meta-nav {
 color: #BCDEFF;
 }
 
@@ -129,29 +125,17 @@ color: #BCDEFF;
 color: #BCDEFF;
 }
 
-.content-area .entry-meta {
-color: #BCDEFF;
-}
-
-.content-area .entry-meta a {
+.content-area .entry-meta, .content-area .entry-meta a {
 color: #BCDEFF;
 }
 
 /* Entry Footer */
-.entry-footer {
-color: #BCDEFF;
-}
-
-.entry-footer a {
+.entry-footer, .entry-footer a {
 color: #BCDEFF;
 }
 
 /* Page Links */
-.page-links {
-color: #BCDEFF;
-}
-
-.page-links > .page-links-title {
+.page-links, .page-links > .page-links-title {
 color: #BCDEFF;
 }
 
@@ -171,15 +155,7 @@ color: #BCDEFF;
 color: #BCDEFF;
 }
 
-.wp-caption {
-color: #BCDEFF;
-}
-
-.gallery-caption {
-color: #BCDEFF;
-}
-
-#infinite-footer {
+.wp-caption, .gallery-caption {
 color: #BCDEFF;
 }
 
