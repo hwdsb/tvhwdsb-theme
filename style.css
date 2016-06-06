@@ -146,7 +146,8 @@ color: #BCDEFF;
 
 .comment-list .comment-reply-title small,
 .comment-metadata,
-.comment-reply-link {
+.comment-reply-link, 
+.comment-author-link {
 color: #BCDEFF;
 }
 
