@@ -35,6 +35,10 @@ a {
     text-decoration: none;
 }
 
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+	background: #333;
+}
+
 /*
  * 'Add Media' button doesn't work if 'table {border-collapse: collapse}'.
  *
