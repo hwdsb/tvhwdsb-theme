@@ -30,9 +30,9 @@ body {
 }
 
 a {
-    color: #ffffff;
-    font-weight: bold;
-    text-decoration: none;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
 }
 
 button, input[type="button"], input[type="reset"], input[type="submit"] {
@@ -58,7 +58,7 @@ table {
 }
 
 #primary, #tertiary {
-    color: #fff;
+	color: #fff;
 }
 
 h2 {
@@ -108,22 +108,22 @@ h2 {
 
 /* Replace #777 with something more complementary to our background. Will need to clean this up as some are probably superfluous */
 caption {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .social-navigation a, .post-navigation .meta-nav {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 /* Recent Posts */
 .widget_recent_entries .post-date {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 /* RSS */
 .widget_rss cite,
 .widget_rss .rss-date {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .footer-text {
@@ -136,55 +136,55 @@ color: #BCDEFF;
 
 /* Entry Footer */
 .entry-footer, .entry-footer a {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 /* Page Links */
 .page-links, .page-links > .page-links-title {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 /* Author Info */
 .author-info .author-title {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .bypostauthor .fn {
-    background: #1b62a2;
+	background: #1b62a2;
 }
 
 .comment-list .comment-reply-title small,
 .comment-metadata,
 .comment-reply-link, 
 .comment-author-link {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .comment-metadata a,
 .comment-list .comment-reply-title small a {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .wp-caption, .gallery-caption {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .site-content .jetpack-recipe .jetpack-recipe-meta {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
-color: #BCDEFF;
+	color: #BCDEFF;
 }
 
-// First Pass at Fixing long titles
+/* First Pass at Fixing long titles */
 .entry-title {
-  word-break: keep-all;
-  overflow-wrap: normal;
-  word-wrap: break-word;
-  -webkit-hyphens: manual;
-  -moz-hyphens: manual;
-  -ms-hyphens: manual;
-  hyphens: manual;
-  text-overflow: ellipsis;
+	word-break: keep-all;
+	overflow-wrap: normal;
+	word-wrap: break-word;
+	-webkit-hyphens: manual;
+	-moz-hyphens: manual;
+	-ms-hyphens: manual;
+	hyphens: manual;
+	text-overflow: ellipsis;
 }
