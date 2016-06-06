@@ -176,3 +176,15 @@ color: #BCDEFF;
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
 color: #BCDEFF;
 }
+
+// First Pass at Fixing long titles
+.entry-title {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  word-wrap: break-word;
+  -webkit-hyphens: manual;
+  -moz-hyphens: manual;
+  -ms-hyphens: manual;
+  hyphens: manual;
+  text-overflow: ellipsis;
+}
