@@ -73,8 +73,16 @@ function hwdsb_tv_after_setup_theme() {
 	remove_filter( 'the_excerpt', 'gazette_continue_reading', 9 );
 	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
 	remove_action( 'wp_enqueue_scripts', 'gazette_post_nav_background' );
+
+	// Jetpack Featured Content - Override Gazette to use our CPT.
+	add_theme_support( 'featured-content', array(
+		'filter'      => 'gazette_get_featured_posts',
+		'description' => __( 'The featured content section displays on the front page above the header.', 'gazette' ),
+		'post_types'  => array( 'vp_video' ),
+		'max_posts'   => 6,
+	) );
 }
-add_action( 'after_setup_theme', 'hwdsb_tv_after_setup_theme' );
+add_action( 'after_setup_theme', 'hwdsb_tv_after_setup_theme', 20 );
 
 /**
  * Override content width from parent theme, Gazette.
@@ -145,11 +153,32 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 	}
 
 	// Down in the ghetto...
+	if ( 'gazette-featured-content-thumbnail' === $size ) {
+		$size = '960x541';
+		$attr = ' class="attachment-gazette-featured-content-thumbnail size-gazette-featured-content-thumbnail wp-post-image"';
+	} else {
+		$size = '295x166';
+		$attr = '';
+	}
+
 	//print_r( $GLOBALS['_wp_additional_image_sizes'][$size] );
 
-	return "<img src=\"https://i.vimeocdn.com/video/{$meta['vp_video_vimeo_picture_id'][0]}_295x166.jpg?r=pad\" /><span class=\"duration\">{$duration}</span>";
+	return "<img src=\"https://i.vimeocdn.com/video/{$meta['vp_video_vimeo_picture_id'][0]}_{$size}.jpg?r=pad\"{$attr}/><span class=\"duration\">{$duration}</span>";
 }
 add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
+
+/**
+ * Jetpack Featured Content JS needs this to set the background-image.
+ */
+function hwdsb_vp_featured_content_post_class( $classes ) {
+	if ( did_action( 'tvhwdsb_after_featured_content' ) ) {
+		return $classes;
+	}
+
+	$classes[] = 'format-image';
+	return $classes;
+}
+add_filter( 'post_class', 'hwdsb_vp_featured_content_post_class' );
 
 /**
  * Add custom image for Jetpack.

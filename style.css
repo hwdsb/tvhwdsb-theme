@@ -77,7 +77,7 @@ h2 {
 	min-height: 158px;
 }
 
-.vp_video .post-thumbnail:before {
+#primary .vp_video .post-thumbnail:before {
 	content: "\f219";
 	color: #fff;
 	display: block;
