@@ -149,6 +149,10 @@ color: #BCDEFF;
 color: #BCDEFF;
 }
 
+.bypostauthor .fn {
+    background: #1b62a2;
+}
+
 .comment-list .comment-reply-title small,
 .comment-metadata,
 .comment-reply-link, 
