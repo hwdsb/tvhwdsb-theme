@@ -158,7 +158,7 @@ function jeherve_custom_image( $media, $post_id, $args ) {
         return $media;
     } else {
         $permalink = get_permalink( $post_id );
-        $url = apply_filters( 'jetpack_photon_url', '/images/hwdsbtv-preview-replace.png' );
+	$url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/images/hwdsbtv-preview-replace.png' );
      
         return array( array(
             'type'  => 'image',
