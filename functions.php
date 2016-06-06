@@ -180,13 +180,14 @@ function hwdsb_vp_jetpack_custom_image( $media, $post_id, $args ) {
 }
 add_filter( 'jetpack_images_get_images', 'hwdsb_vp_jetpack_custom_image', 10, 3 );
 
-// Add Jetpack Related Post Functionality to the VP_Video CPT
-
-function allow_my_post_types($allowed_post_types) {
-    $allowed_post_types[] = 'vp_video';
-    return $allowed_post_types;
+/**
+ * Tell Jetpack about our custom post type.
+ */
+function hwdsb_vp_jetpack_register_cpt( $cpt ) {
+	$cpt[] = 'vp_video';
+	return $cpt;
 }
-add_filter( 'rest_api_allowed_post_types', 'allow_my_post_types' );
+add_filter( 'rest_api_allowed_post_types', 'hwdsb_vp_jetpack_register_cpt' );
 
 // @todo Perhaps change the /author/ slug to something else?
 // @link http://wordpress.stackexchange.com/a/82219
