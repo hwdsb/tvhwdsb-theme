@@ -151,24 +151,34 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 }
 add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
 
-// Add Fallback Featured Image if one doesn't exist already
+/**
+ * Add custom image for Jetpack.
+ *
+ * @link https://jetpack.com/2013/10/15/add-a-default-fallback-image-if-no-image/
+ */
+function hwdsb_vp_jetpack_custom_image( $media, $post_id, $args ) {
+	if ( $media ) {
+		return $media;
+	} else {
+		// Fallback image.
+		$url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/images/hwdsbtv-preview-replace.png' );
 
-function jeherve_custom_image( $media, $post_id, $args ) {
-    if ( $media ) {
-        return $media;
-    } else {
-        $permalink = get_permalink( $post_id );
-	$url = apply_filters( 'jetpack_photon_url', get_stylesheet_directory_uri() . '/images/hwdsbtv-preview-replace.png' );
-     
-        return array( array(
-            'type'  => 'image',
-            'from'  => 'custom_fallback',
-            'src'   => esc_url( $url ),
-            'href'  => $permalink,
-        ) );
-    }
+		$meta = get_post_meta( $post_id );
+
+		// Use our custom thumbnail if available.
+		if ( ! empty( $meta['vp_video_vimeo_picture_id'][0] ) && ( 'vimeo' === $meta['vp_video_source'][0] || 'local' === $meta['vp_video_source'][0] ) ) {
+			$url = "https://i.vimeocdn.com/video/{$meta['vp_video_vimeo_picture_id'][0]}_295x166.jpg?r=pad";
+		}
+
+		return array( array(
+			'type'  => 'image',
+			'from'  => 'custom_fallback',
+			'src'   => esc_url( $url ),
+			'href'  => get_permalink( $post_id ),
+		) );
+	}
 }
-add_filter( 'jetpack_images_get_images', 'jeherve_custom_image', 10, 3 );
+add_filter( 'jetpack_images_get_images', 'hwdsb_vp_jetpack_custom_image', 10, 3 );
 
 // Add Jetpack Related Post Functionality to the VP_Video CPT
 
