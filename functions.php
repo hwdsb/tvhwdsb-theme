@@ -175,6 +175,10 @@ function hwdsb_vp_featured_content_post_class( $classes ) {
 		return $classes;
 	}
 
+	if ( false === gazette_get_featured_posts() ) {
+		return $classes;
+	}
+
 	$classes[] = 'format-image';
 	return $classes;
 }
