@@ -171,7 +171,7 @@ add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
  * Jetpack Featured Content JS needs this to set the background-image.
  */
 function hwdsb_vp_featured_content_post_class( $classes ) {
-	if ( did_action( 'tvhwdsb_after_featured_content' ) ) {
+	if ( did_action( 'tvhwdsb_after_featured_content' ) || ! is_home() ) {
 		return $classes;
 	}
 
