@@ -15,7 +15,10 @@
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		<div class="entry-meta">
-			<?php gazette_posted_on(); ?>
+			Posted by <a href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php the_author_meta( 'display_name' ); ?></a>
+
+			<?php printf( _x( '%s ago', '%s = human-readable time difference', 'tvhwdsb' ), human_time_diff( get_the_time( 'U' ), current_time( 'timestamp' ) ) ); ?>
+
 		</div><!-- .entry-meta -->
 	</header><!-- .entry-header -->
 
