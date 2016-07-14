@@ -12,12 +12,8 @@ get_header(); ?>
 			<main id="main" class="site-main" role="main">
 
 				<?php while ( have_posts() ) : the_post(); ?>
-
 					<?php get_template_part( 'content', 'vp_video' ); ?>
-					<?php if(function_exists('social_warfare')):
-    						social_warfare();
-						endif;
-						?>
+
 					<?php
 						// If comments are open or we have at least one comment, load up the comment template
 						if ( comments_open() || get_comments_number() ) :

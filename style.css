@@ -188,3 +188,40 @@ color: #BCDEFF;
 	hyphens: manual;
 	text-overflow: ellipsis;
 }
+
+/* Single video page */
+body.single-vp_video .entry-meta a {
+	color: #fff;
+}
+
+/* Tabs */
+ul.tabs{
+	list-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+ul.tabs li{
+	background: none;
+	cursor: pointer;
+	display: inline-block;
+	padding: 5px 15px;
+}
+
+ul.tabs li.current{
+	background: #fff;
+	border-radius: 6px 6px 0px 0px;
+	color: #222;
+}
+
+.tab-content{
+	background: #fff;
+	display: none;
+	padding: 20px 15px 15px 15px;
+}
+
+.tab-content.current,
+.tab-content a {
+	color: #222;
+	display: inherit;
+}
