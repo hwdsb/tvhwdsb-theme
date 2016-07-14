@@ -190,6 +190,10 @@ color: #BCDEFF;
 }
 
 /* Single video page */
+body.single-vp_video .site-main {
+	padding-top: 30px;
+}
+
 body.single-vp_video .entry-meta a {
 	color: #fff;
 }
