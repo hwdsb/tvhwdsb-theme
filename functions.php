@@ -248,5 +248,55 @@ function hwdsb_vp_jetpack_register_cpt( $cpt ) {
 }
 add_filter( 'rest_api_allowed_post_types', 'hwdsb_vp_jetpack_register_cpt' );
 
+/**
+ * Remove Jetpack's related posts from 'the_content' filter.
+ */
+function hwdsb_jetpack_remove_related_posts_from_post_content() {
+	if ( false === class_exists( 'Jetpack_RelatedPosts', false ) ) {
+		return;
+	}
+
+	$jprp = Jetpack_RelatedPosts::init();
+	$callback = array( $jprp, 'filter_add_target_to_dom' );
+	remove_filter( 'the_content', $callback, 40 );
+}
+add_filter( 'wp', 'hwdsb_jetpack_remove_related_posts_from_post_content', 20 );
+
+/**
+ * Add Jetpack's related posts block to the top of the sidebar.
+ */
+function hwdsb_jetpack_add_related_posts_to_sidebar() {
+	if ( false === is_singular( 'vp_video' ) ) {
+		return;
+	}
+
+	if ( class_exists( 'Jetpack_RelatedPosts' ) ) {
+		echo '<aside id="recent-videos" class="widget recent_videos">';
+		echo do_shortcode( '[jetpack-related-posts]' );
+		echo '</aside>';
+	}
+}
+add_action( 'dynamic_sidebar_before', 'hwdsb_jetpack_add_related_posts_to_sidebar' );
+
+/**
+ * Alter Jetpack's related posts heading to 'Related Videos'
+ */
+function hwdsb_jetpack_related_posts_alter_heading( $headline ) {
+	return sprintf( '<h2 class="widget-title">%s</h2>', esc_html( 'Related Videos' ) );
+}
+add_filter( 'jetpack_relatedposts_filter_headline', 'hwdsb_jetpack_related_posts_alter_heading' );
+
+/**
+ * Alter Jetpack's related posts byline.
+ */
+function hwdsb_jetpack_related_posts_filter_post_context( $retval ) {
+	if ( 'Similar post' === $retval ) {
+		$retval = 'Similar video';
+	}
+
+	return $retval;
+}
+add_filter( 'jetpack_relatedposts_filter_post_context', 'hwdsb_jetpack_related_posts_filter_post_context' );
+
 // @todo Perhaps change the /author/ slug to something else?
 // @link http://wordpress.stackexchange.com/a/82219

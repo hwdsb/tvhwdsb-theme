@@ -173,10 +173,6 @@ color: #BCDEFF;
 	color: #BCDEFF;
 }
 
-.hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
-	color: #BCDEFF;
-}
-
 /* First Pass at Fixing long titles */
 .entry-title {
 	word-break: keep-all;
@@ -196,6 +192,25 @@ body.single-vp_video .site-main {
 
 body.single-vp_video .entry-meta a {
 	color: #fff;
+}
+
+/* Jetpack Related Posts */
+.hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
+	color: #BCDEFF;
+}
+
+div#jp-relatedposts {
+	border: 0;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+div#jp-relatedposts::before {
+	display: none;
+}
+
+body.single-vp_video #jp-relatedposts .jp-relatedposts-items .jp-relatedposts-post {
+	width: 100%;
 }
 
 /* Tabs */
