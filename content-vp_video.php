@@ -8,6 +8,13 @@
 	<header class="entry-header">
 		<?php hwdsb_vp_the_video(); ?>
 
+		<?php // Show message block about video processing. ?>
+		<?php if ( '' === get_post_meta( get_queried_object_id(), 'vp_video_duration', true ) && 'local' === get_post_meta( get_queried_object_id(), 'vp_video_source', true ) ) : ?>
+			<div class="alert alert-danger" role="alert">
+				<strong>Your video is processing</strong> - You will receive an email once your video is ready to watch.
+			</div>
+		<?php endif; ?>
+
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
 
 		<div class="entry-meta">
