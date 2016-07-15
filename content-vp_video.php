@@ -6,10 +6,6 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<div class="entry-meta">
-			<?php gazette_entry_meta(); ?>
-		</div><!-- .entry-meta -->
-
 		<?php hwdsb_vp_the_video(); ?>
 
 		<?php the_title( sprintf( '<h1 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h1>' ); ?>
