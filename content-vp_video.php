@@ -8,10 +8,19 @@
 	<header class="entry-header">
 		<?php hwdsb_vp_the_video(); ?>
 
+		<?php // BuddyPress cookie messages. ?>
+		<?php do_action( 'template_notices' ); ?>
+
 		<?php // Show message block about video processing. ?>
-		<?php if ( '' === get_post_meta( get_queried_object_id(), 'vp_video_duration', true ) && 'local' === get_post_meta( get_queried_object_id(), 'vp_video_source', true ) ) : ?>
+		<?php if ( '' === get_post_meta( get_the_ID(), 'vp_video_duration', true ) && 'local' === get_post_meta( get_the_ID(), 'vp_video_source', true ) ) : ?>
 			<div class="alert alert-danger" role="alert">
-				<strong>Your video is processing</strong> - You will receive an email once your video is ready to watch.
+				<?php if ( get_current_user_id() == get_the_author_meta( 'ID' ) ) : ?>
+					<strong>Your video is processing</strong> - You will receive an email once your video is ready to watch. In the meantime, feel free to <a href="<?php echo esc_url( get_edit_post_link() );?>" class="alert-link">edit your video details</a>.
+
+				<?php else : ?>
+					<strong>This video is currently processing</strong> - <a href="<?php echo esc_url( get_permalink() ); ?>" class="alert-link">Refresh the page</a> to see if the video is ready to watch.
+
+				<?php endif; ?>
 			</div>
 		<?php endif; ?>
 
