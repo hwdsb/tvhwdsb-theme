@@ -194,6 +194,26 @@ body.single-vp_video .entry-meta a {
 	color: #fff;
 }
 
+/* Edit video page */
+#titlediv #titlewrap #title {
+	width: 100%;
+}
+
+#postimagediv,
+#password-span,
+#visibility-radio-password,
+label[for="visibility-radio-password"],
+label[for="visibility-radio-password"] + br,
+.misc-pub-post-status,
+.misc-pub-curtime {
+	display: none;
+}
+
+#publishing-action {
+	margin-bottom: 1em;
+}
+
+
 /* Jetpack Related Posts */
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
 	color: #BCDEFF;
