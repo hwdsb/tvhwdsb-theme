@@ -237,7 +237,7 @@ label[for="visibility-radio-password"] + br,
 }
 
 #widget-playlist li img {
-	float: left;
+	float: none;
 	height: 50px;
 	vertical-align: middle;
 }
@@ -260,7 +260,7 @@ label[for="visibility-radio-password"] + br,
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
-	width: 115px;
+	width: 40%;
 }
 
 #widget-playlist li a.playlist-author-link {
@@ -268,6 +268,29 @@ label[for="visibility-radio-password"] + br,
 	font-weight: normal;
 	margin-left: .3em;
 }
+
+@media screen and (max-width: 506px) {
+	#widget-playlist li img {
+		float: left;
+	}
+
+	#widget-playlist li a.playlist-video-title,
+	#widget-playlist li a.playlist-author-link {
+		width: calc(100% - 80px);
+	}
+}
+
+@media screen and (min-width: 960px) {
+	#widget-playlist li img {
+		float: left;
+	}
+
+	#widget-playlist li a.playlist-video-title,
+	#widget-playlist li a.playlist-author-link {
+		width: 190px;
+	}
+}
+
 
 /* Jetpack Related Posts */
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
