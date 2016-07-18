@@ -298,5 +298,24 @@ function hwdsb_jetpack_related_posts_filter_post_context( $retval ) {
 }
 add_filter( 'jetpack_relatedposts_filter_post_context', 'hwdsb_jetpack_related_posts_filter_post_context' );
 
+
+/**
+ * Add playlist video loop on a video page with the 'playlist' URL query var.
+ */
+function hwdsb_vp_playlist_loop_add_to_sidebar() {
+	if ( false === is_singular( 'vp_video' ) || false === function_exists( 'vp_have_playlist_videos' ) ) {
+		return;
+	}
+
+	if ( false === vp_have_playlist_videos() ) {
+		return;
+	}
+
+	echo '<aside id="widget-playlist" class="widget widget_archive">';
+	vp_get_template_part( 'widget-playlist_video' );
+	echo '</aside>';
+}
+add_action( 'dynamic_sidebar_before', 'hwdsb_vp_playlist_loop_add_to_sidebar', 0 );
+
 // @todo Perhaps change the /author/ slug to something else?
 // @link http://wordpress.stackexchange.com/a/82219

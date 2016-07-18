@@ -218,6 +218,55 @@ label[for="visibility-radio-password"] + br,
 	margin-bottom: 1em;
 }
 
+/* Playlist widget */
+#widget-playlist h2 {
+	margin-bottom: 0;
+}
+
+#widget-playlist .playlist-meta {
+	margin-bottom: .5em;
+}
+
+#widget-playlist ol {
+	border-bottom: 1px solid #eee;
+	list-style-position: outside;
+}
+
+#widget-playlist li {
+	position: relative;
+}
+
+#widget-playlist li img {
+	float: left;
+	height: 50px;
+	vertical-align: middle;
+}
+
+#widget-playlist li.currently-playing a:first-child:before {
+	content: "\f522";
+	font-family: dashicons;
+	font-size: 3em;
+	position: absolute;
+	width: 75px;
+	text-align: center;
+	left:0;
+	top: 0;
+}
+
+#widget-playlist li a.playlist-video-title {
+	display: inline-block;
+	margin-bottom: -5px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 115px;
+}
+
+#widget-playlist li a.playlist-author-link {
+	color: #BCDEFF;
+	font-weight: normal;
+	margin-left: .3em;
+}
 
 /* Jetpack Related Posts */
 .hentry div#jp-relatedposts div.jp-relatedposts-items .jp-relatedposts-post-context {
