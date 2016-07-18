@@ -204,16 +204,6 @@ body.single-vp_video .post-edit-link {
 	width: 100%;
 }
 
-#postimagediv,
-#password-span,
-#visibility-radio-password,
-label[for="visibility-radio-password"],
-label[for="visibility-radio-password"] + br,
-.misc-pub-post-status,
-.misc-pub-curtime {
-	display: none;
-}
-
 #publishing-action {
 	margin-bottom: 1em;
 }
