@@ -194,6 +194,11 @@ body.single-vp_video .entry-meta a {
 	color: #fff;
 }
 
+body.single-vp_video .post-edit-link {
+	display: inline-block;
+	margin-top: 1em;
+}
+
 /* Edit video page */
 #titlediv #titlewrap #title {
 	width: 100%;

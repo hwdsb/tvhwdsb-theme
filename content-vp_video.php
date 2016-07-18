@@ -82,6 +82,8 @@
 
 		</div><!-- container -->
 
+		<?php edit_post_link( __( 'Edit video details', 'tvhwdsb' ) ); ?>
+
 	</div><!-- .entry-content -->
 
 	<script>
