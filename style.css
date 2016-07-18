@@ -253,7 +253,8 @@ label[for="visibility-radio-password"] + br,
 	top: 0;
 }
 
-#widget-playlist li a.playlist-video-title {
+#widget-playlist li a.playlist-video-title,
+#widget-playlist li a.playlist-author-link {
 	display: inline-block;
 	margin-bottom: -5px;
 	overflow: hidden;
