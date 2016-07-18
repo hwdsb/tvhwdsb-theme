@@ -111,6 +111,21 @@ function hwdsb_tv_after_setup_theme() {
 add_action( 'after_setup_theme', 'hwdsb_tv_after_setup_theme', 20 );
 
 /**
+ * Remove header image on all pages except the homepage.
+ *
+ * @param  bool $retval Current setting.
+ * @return bool
+ */
+function hwdsb_remove_header_image_on_video_page( $retval ) {
+	if ( ! is_home() ) {
+		return false;
+	}
+
+	return $retval;
+}
+add_filter( 'theme_mod_header_image', 'hwdsb_remove_header_image_on_video_page' );
+
+/**
  * Override content width from parent theme, Gazette.
  */
 function gazette_content_width() {
