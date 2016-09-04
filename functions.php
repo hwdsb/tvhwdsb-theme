@@ -226,6 +226,22 @@ function hwdsb_vp_featured_content_post_class( $classes ) {
 add_filter( 'post_class', 'hwdsb_vp_featured_content_post_class' );
 
 /**
+ * Add BuddyPress' 'template_notices' hook to the post author's page.
+ */
+function hwdsb_vp_add_template_notices_hook_to_author_page() {
+	if ( ! is_author() ) {
+		return;
+	}
+
+	// Add BP's template notices hook.
+	do_action( 'template_notices' );
+
+	// Don't do this again.
+	remove_action( 'get_template_part_content', 'hwdsb_vp_add_template_notices_hook_to_author_page' );
+}
+add_action( 'get_template_part_content', 'hwdsb_vp_add_template_notices_hook_to_author_page' );
+
+/**
  * Add custom image for Jetpack.
  *
  * @link https://jetpack.com/2013/10/15/add-a-default-fallback-image-if-no-image/

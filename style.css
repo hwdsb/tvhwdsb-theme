@@ -351,6 +351,10 @@ body.single-vp_video .alert {
 	margin-top: 2rem;
 }
 
+body.author.archive #message {
+	margin: -1rem 0 2em;
+}
+
 #message p {
 	margin: 0;
 }
