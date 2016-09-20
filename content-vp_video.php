@@ -84,6 +84,16 @@
 
 		<?php edit_post_link( __( 'Edit video details', 'tvhwdsb' ) ); ?>
 
+		<?php if ( class_exists( 'bpModLoader', false ) ) {
+			echo '<p>' . bpModFrontend::get_link( array(
+				'type' => 'video-portal',
+				'id' => get_the_ID(),
+				'author_id' => get_the_author_meta( 'id' ),
+				'unflagged_text' => 'Inappropriate?'
+			) ) . '</p>';
+		}
+		?>
+
 	</div><!-- .entry-content -->
 
 	<script>
