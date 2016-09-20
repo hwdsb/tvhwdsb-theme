@@ -88,7 +88,7 @@
 			echo '<p>' . bpModFrontend::get_link( array(
 				'type' => 'video-portal',
 				'id' => get_the_ID(),
-				'author_id' => get_the_author_meta( 'id' ),
+				'author_id' => get_the_author_meta( 'ID' ),
 				'unflagged_text' => 'Inappropriate?'
 			) ) . '</p>';
 		}
