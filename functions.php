@@ -19,7 +19,7 @@ function hwdsb_vp_the_video() {
 		case 'local' :
 		case 'vimeo' :
 			if ( true === function_exists( 'mexp_vimeo_get_shortcode_tag' ) ) {
-				$content = '[' . mexp_vimeo_get_shortcode_tag() . ' id="' . $meta['vp_video_id'][0] . '"]';
+				$content = '[' . mexp_vimeo_get_shortcode_tag() . ' height="360" id="' . $meta['vp_video_id'][0] . '"]';
 				$media = do_shortcode( $content );
 
 			// Old way.
@@ -77,8 +77,9 @@ function hwdsb_vp_the_embed_code() {
 	$id = get_post_meta( get_queried_object_id(), 'vp_video_id', true );
 
 	$iframe = trim( mexp_vimeo_get_iframe( array(
-		'id'    => $id,
-		'width' => 600,
+		'id'     => $id,
+		'width'  => 560,
+		'height' => 315,
 		'content_width' => false,
 	) ) );
 
