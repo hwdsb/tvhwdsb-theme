@@ -383,3 +383,8 @@ body.author.archive #message {
 .alert.alert-danger .alert-link {
 	color: #843534;
 }
+
+/* Searchwp ajax results */
+.searchwp-live-search-result a {
+	color: #1b62a2;
+}
