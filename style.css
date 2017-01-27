@@ -194,8 +194,7 @@ body.single-vp_video .entry-meta a {
 	color: #fff;
 }
 
-body.single-vp_video .post-edit-link {
-	display: inline-block;
+body.single-vp_video .vp-edit-link {
 	margin-top: 1em;
 }
 

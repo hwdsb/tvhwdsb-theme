@@ -82,7 +82,7 @@
 
 		</div><!-- container -->
 
-		<?php edit_post_link( __( 'Edit video details', 'tvhwdsb' ) ); ?>
+		<?php edit_post_link( __( 'Edit video details', 'tvhwdsb' ), '<div class="vp-edit-link"><span class="dashicons dashicons-admin-settings"></span>', '</div>' ); ?>
 
 		<?php if ( class_exists( 'bpModLoader', false ) ) {
 			echo '<p>' . bpModFrontend::get_link( array(
