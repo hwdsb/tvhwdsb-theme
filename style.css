@@ -198,6 +198,24 @@ body.single-vp_video .vp-edit-link {
 	margin-top: 1em;
 }
 
+/* Single video page - Playlist toggle */
+button.multiselect {
+	margin-top: .1em;
+}
+
+button.multiselect.dropdown-toggle {
+	height: auto;
+	position: static;
+	width: auto;
+}
+button.multiselect.dropdown-toggle:before {
+	display: none;
+}
+
+.multiselect-container input[type="checkbox"] {
+	margin-top: 3px;
+}
+
 /* Edit video page */
 #titlediv #titlewrap #title {
 	width: 100%;

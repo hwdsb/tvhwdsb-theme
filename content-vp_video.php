@@ -50,6 +50,12 @@
 					<?php endif; ?>
 
 				<?php endif; ?>
+
+				<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_dropdown' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
+
+					<li class="tab-link" data-tab="tab-4">Playlist</li>
+
+				<?php endif; ?>
 			</ul>
 
 			<div id="tab-1" class="tab-content current">
@@ -77,6 +83,14 @@
 					</div>
 
 				<?php endif; ?>
+
+			<?php endif; ?>
+
+			<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_dropdown' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
+
+				<div id="tab-4" class="tab-content">
+					<?php vp_the_playlist_dropdown(); ?>
+				</div>
 
 			<?php endif; ?>
 
