@@ -351,7 +351,6 @@ function hwdsb_jetpack_related_posts_filter_post_context( $retval ) {
 }
 add_filter( 'jetpack_relatedposts_filter_post_context', 'hwdsb_jetpack_related_posts_filter_post_context' );
 
-
 /**
  * Add playlist video loop on a video page with the 'playlist' URL query var.
  */
@@ -370,5 +369,50 @@ function hwdsb_vp_playlist_loop_add_to_sidebar() {
 }
 add_action( 'dynamic_sidebar_before', 'hwdsb_vp_playlist_loop_add_to_sidebar', 0 );
 
+/**
+ * Force Social Warface buttons to render on unlisted posts.
+ *
+ * Hooks into SW's post meta call for 'nc_floatLocation' to force the post
+ * status to publish.  See {@link social_warfare_buttons()}.
+ *
+ * @param null|array|string  $value     The value get_metadata() should return - a single metadata value,
+ *                                      or an array of values.
+ * @param  int               $object_id Object ID.
+ * @param  string            $meta_key  Meta key.
+ * @param  bool              $single    Whether to return only the first value of the specified $meta_key.
+ * @return mixed
+ */
+function hwdsb_vp_force_social_warface_on_unlisted_posts( $retval, $post_id, $meta_key, $single ) {
+	if ( 'nc_floatLocation' !== $meta_key || false === class_exists( 'Ray_Unlisted_Posts', false ) ) {
+		return $retval;
+	}
+
+	$post = get_post( $post_id );
+	if ( 'vp_video' !== $post->post_type ) {
+		return $retval;
+	}
+
+	if ( false === Ray_Unlisted_Posts::is_unlisted( $post_id ) ) {
+		return $retval;
+	}
+
+	// Force post status to publish.
+	add_filter( 'get_post_status', 'hwdsb_vp_force_post_status_to_publish', 10, 2 );
+
+	return $retval;
+}
+add_filter( 'get_post_metadata', 'hwdsb_vp_force_social_warface_on_unlisted_posts', 10, 4 );
+
+/**
+ * Force post status to publish.
+ *
+ * @param  string  $retval Current post status.
+ * @param  WP_Post $post   Current post.
+ * @return string
+ */
+function hwdsb_vp_force_post_status_to_publish( $retval, $post ) {
+	remove_filter( 'get_post_status', 'hwdsb_vp_force_post_status_to_publish', 10 );
+	return 'publish';
+}
 // @todo Perhaps change the /author/ slug to something else?
 // @link http://wordpress.stackexchange.com/a/82219
