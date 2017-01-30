@@ -351,6 +351,20 @@ ul.tabs li.current{
 	display: inherit;
 }
 
+.tab-link a {
+	background: inherit;
+	color: inherit;
+	font-weight: inherit;
+}
+
+body.author .page-header {
+	padding-bottom: 0;
+}
+
+body.author .tab-container {
+	margin-top: 2em;
+}
+
 /* Alerts - Thanks Bootstrap! */
 #message,
 .alert {
