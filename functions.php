@@ -148,8 +148,20 @@ function gazette_content_width() {
 function hwdsb_tv_enqueue_scripts() {
 	// Enqueue parent style.
 	wp_enqueue_style( 'gazette-parent-style', get_template_directory_uri() . '/style.css' );
+
+	// Enqueue our stylesheet so we can bust CSS cache.
+	wp_enqueue_style( 'tvhwdsb', get_stylesheet_uri(), array(), '20170130' );
 }
 add_action( 'wp_enqueue_scripts', 'hwdsb_tv_enqueue_scripts' );
+
+/**
+ * Dequeue scripts and styles.
+ */
+function hwdsb_tv_dequeue_scripts() {
+	// Dequeue Gazette's style.css since we are manually doing it ourselves.
+	wp_dequeue_style( 'gazette-style' );
+}
+add_action( 'wp_enqueue_scripts', 'hwdsb_tv_dequeue_scripts', 20 );
 
 /**
  * Adds some logged-in user links to the top nav menu.
