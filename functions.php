@@ -152,6 +152,27 @@ function hwdsb_tv_enqueue_scripts() {
 add_action( 'wp_enqueue_scripts', 'hwdsb_tv_enqueue_scripts' );
 
 /**
+ * Adds some logged-in user links to the top nav menu.
+ */
+function hwsdsb_nav_menu_author_links( $menu ) {
+	if( ! is_user_logged_in() ){
+		return $menu;
+	}
+
+	$videos_link    = get_author_posts_url( get_current_user_id() );
+	$playlists_link = $videos_link . 'playlists/';
+
+	$markup = <<<EOD
+
+	<li class="menu-item"><a href="{$videos_link}" >My Videos</a></li>
+	<li class="menu-item"><a href="{$playlists_link}" >My Playlists</a></li>
+
+EOD;
+	return $markup . $menu;
+}
+add_filter( 'wp_nav_menu_items', 'hwsdsb_nav_menu_author_links' );
+
+/**
  * Force has_post_thumbnail() to true for Video Portal videos.
  */
 function hwdsb_vp_filter_thumbnail_id( $retval, $post_id, $meta_key, $single ) {
