@@ -1,10 +1,10 @@
 <?php
 /**
- * The template for displaying archive pages.
+ * The template for displaying the author page.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
- * @package Gazette
+ * @package tvhwdsb
  */
 
 get_header(); ?>
@@ -20,15 +20,13 @@ get_header(); ?>
 					the_archive_description( '<div class="taxonomy-description">', '</div>' );
 				?>
 
-				<?php if ( is_author() ) : ?>
-					<div class="tab-container">
-						<ul class="tabs">
-							<li class="tab-link <?php echo ! get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ); ?>">Videos</a></li>
-							<li class="tab-link <?php echo get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ) . 'playlists/'; ?>">Playlists</a></li>
-						</ul>
-					</div>
-					
-				<?php endif; ?>
+
+				<div class="tab-container">
+					<ul class="tabs">
+						<li class="tab-link <?php echo ! get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ); ?>">Videos</a></li>
+						<li class="tab-link <?php echo get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ) . 'playlists/'; ?>">Playlists</a></li>
+					</ul>
+				</div>
 
 			</header><!-- .page-header -->
 
