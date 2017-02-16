@@ -65,6 +65,10 @@ h2 {
 	color: #fff;
 }
 
+.page-header {
+	position: relative;
+}
+
 .entry-summary {
 	margin-top: 10px;
 }
@@ -214,6 +218,20 @@ button.multiselect.dropdown-toggle:before {
 
 .multiselect-container input[type="checkbox"] {
 	margin-top: 3px;
+}
+
+/* Single playlist page */
+div.vp-playlist-edit {
+	margin-bottom: 0;
+}
+
+a.vp-playlist-edit {
+	border-radius: 6px;
+	line-height: 1;
+	padding: 6px;
+	position: absolute;
+	right: 0;
+	top: .6em;
 }
 
 /* Edit video page */

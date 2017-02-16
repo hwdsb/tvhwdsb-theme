@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying the author page.
+ * The template for displaying archive pages.
  *
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
  *
@@ -14,21 +14,7 @@ get_header(); ?>
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-
-
-				<div class="tab-container">
-					<ul class="tabs">
-						<li class="tab-link <?php echo ! get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ); ?>">Videos</a></li>
-						<li class="tab-link <?php echo get_query_var( 'vp_author_id' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ) . 'playlists/'; ?>">Playlists</a></li>
-					</ul>
-				</div>
-
-			</header><!-- .page-header -->
+			<?php get_template_part( 'page-header' ); ?>
 
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
