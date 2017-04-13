@@ -51,7 +51,7 @@
 
 				<?php endif; ?>
 
-				<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_dropdown' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
+				<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_select' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
 
 					<li class="tab-link" data-tab="tab-4">Playlist</li>
 
@@ -86,10 +86,15 @@
 
 			<?php endif; ?>
 
-			<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_dropdown' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
+			<?php if ( is_user_logged_in() && function_exists( 'vp_the_playlist_select' ) && true === (bool) apply_filters( 'vp_enable_playlist', true ) ) : ?>
 
 				<div id="tab-4" class="tab-content">
-					<?php vp_the_playlist_dropdown(); ?>
+					<p><strong><?php _e( 'Add video to an existing playlist', 'tvhwdsb' ); ?></strong></p>
+					<?php vp_the_playlist_select(); ?>
+
+					<p><strong><?php _e( 'Or create a new playlist', 'tvhwdsb' ); ?></strong></p>
+
+					<?php vp_the_playlist_create(); ?>
 				</div>
 
 			<?php endif; ?>
