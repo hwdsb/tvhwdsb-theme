@@ -64,33 +64,6 @@ function hwdsb_vp_the_video_metadata() {
 	echo ' &middot; ' . human_time_diff( get_the_time('U'), current_time('timestamp') ) . ' ago';
 }
 
-/**
- * Output the embed code for a video.
- *
- * Use this on single video pages only.
- */
-function hwdsb_vp_the_embed_code() {
-	if ( false === function_exists( 'mexp_vimeo_get_iframe' ) ) {
-		return;
-	}
-
-	$id = get_post_meta( get_queried_object_id(), 'vp_video_id', true );
-
-	$iframe = trim( mexp_vimeo_get_iframe( array(
-		'id'     => $id,
-		'width'  => 560,
-		'height' => 315,
-		'content_width' => false,
-	) ) );
-
-	$src = str_replace( array( 'http:', 'https:' ), '', add_query_arg( 'embed', 'true', get_permalink( get_queried_object() ) ) );
-
-	$iframe = str_replace( '//player.vimeo.com/video/' . $id, $src, $iframe );
-	$iframe = str_replace( ' class="' . mexp_vimeo_get_shortcode_tag() . '"', '', $iframe );
-
-	printf( '<textarea onclick="this.select();" readonly="readonly">%s</textarea>', $iframe );
-}
-
 /** HOOKS ****************************************************************/
 
 /**

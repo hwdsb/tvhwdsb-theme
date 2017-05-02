@@ -43,7 +43,9 @@
 
 				<?php if ( 'publish' === get_post_status() || ( class_exists( 'Ray_Unlisted_Posts' ) && Ray_Unlisted_Posts::is_unlisted() ) ) : ?>
 
-					<li class="tab-link" data-tab="tab-2">Embed</li>
+					<?php if ( function_exists( 'vp_the_video_data' ) ) : ?>
+						<li class="tab-link" data-tab="tab-2">Embed</li>
+					<?php endif; ?>
 
 					<?php if ( function_exists( 'social_warfare' ) ) : ?>
 						<li class="tab-link" data-tab="tab-3">Share</li>
@@ -72,9 +74,13 @@
 
 			<?php if ( 'publish' === get_post_status() || ( class_exists( 'Ray_Unlisted_Posts' ) && Ray_Unlisted_Posts::is_unlisted() ) ) : ?>
 
-				<div id="tab-2" class="tab-content">
-					<?php hwdsb_vp_the_embed_code(); ?>
-				</div>
+				<?php if ( function_exists( 'vp_the_video_data' ) ) : ?>
+
+					<div id="tab-2" class="tab-content">
+						<?php vp_the_video_data( 0, 'embed_code' ); ?>
+					</div>
+
+				<?php endif; ?>
 
 				<?php if ( function_exists( 'social_warfare' ) ) : ?>
 
