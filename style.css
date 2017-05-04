@@ -209,16 +209,25 @@ div.selectize-control.vp-playlist-select {
 }
 
 /* Single playlist page */
-div.vp-playlist-edit {
+div.vp-playlist-edit,
+div.vp-playlist-embed {
 	margin-bottom: 0;
 }
 
-a.vp-playlist-edit {
+a.vp-playlist-edit,
+a.vp-playlist-embed {
 	border-radius: 6px;
 	line-height: 1;
 	padding: 6px;
 	position: absolute;
 	right: 0;
+}
+
+a.vp-playlist-edit {
+	top: 3.3em;
+}
+
+a.vp-playlist-embed {
 	top: .6em;
 }
 
@@ -363,7 +372,8 @@ ul.tabs li.current{
 	font-weight: inherit;
 }
 
-body.author .page-header {
+body.author .page-header,
+body.tax-vp_playlist .page-header {
 	padding-bottom: 0;
 }
 

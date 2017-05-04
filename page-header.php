@@ -21,6 +21,12 @@
 
 				<?php endif; ?>
 
+				<?php if ( is_tax( 'vp_playlist' ) && 'private' !== get_term_meta( get_queried_object()->term_id, 'privacy', true ) ) : ?>
+
+					<div class="comment-navigation vp-playlist-embed"><a href="#" class="vp-playlist-embed" title="Embed" data-playlist-id="<?php echo (int) get_queried_object()->term_id; ?>"><span class="dashicons dashicons-share-alt2"></span></a></div>
+
+				<?php endif; ?>
+
 				<?php if ( is_tax( 'vp_playlist' ) && is_user_logged_in() && get_current_user_id() === (int) get_term_meta( get_queried_object()->term_id, 'author', true ) ) : ?>
 					<div class="comment-navigation vp-playlist-edit"><a href="#" class="vp-playlist-edit" title="Edit" data-playlist-id="<?php echo (int) get_queried_object()->term_id; ?>"><span class="dashicons dashicons-admin-generic"></span></a></div>
 				<?php endif; ?>
