@@ -19,7 +19,8 @@ function hwdsb_vp_the_video() {
 		case 'local' :
 		case 'vimeo' :
 			if ( true === function_exists( 'mexp_vimeo_get_shortcode_tag' ) ) {
-				$content = '[' . mexp_vimeo_get_shortcode_tag() . ' height="360" id="' . $meta['vp_video_id'][0] . '"]';
+				$autoplay = ! empty( $_GET['playlist'] ) ? ' autoplay="1"' : '';
+				$content = '[' . mexp_vimeo_get_shortcode_tag() . ' height="360" id="' . $meta['vp_video_id'][0] . '"' . $autoplay . ']';
 				$media = do_shortcode( $content );
 
 			// Old way.
