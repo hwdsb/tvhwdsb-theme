@@ -381,18 +381,7 @@ body.author .tab-container {
 	margin-top: 2em;
 }
 
-/* Alerts - Thanks Bootstrap! */
-#message,
-.alert {
-	border: 1px solid transparent;
-	border-radius: 0.25rem;
-	display: block;
-	font-family: Lato, sans-serif;
-	line-height: 1.5;
-	margin-bottom: 1rem;
-	padding: 15px;
-}
-
+/* Alerts */
 body.single-vp_video #message,
 body.single-vp_video .alert {
 	margin-top: 2rem;
@@ -400,35 +389,6 @@ body.single-vp_video .alert {
 
 body.author.archive #message {
 	margin: -1rem 0 2em;
-}
-
-#message p {
-	margin: 0;
-}
-
-.alert a:hover {
-	text-decoration: underline;
-}
-
-#message.updated,
-.alert.alert-success {
-	background-color: #dff0d8;
-	border-color: #d0e9c6;
-	color: #3c763d;
-}
-
-.alert.alert-success .alert-link {
-	color: #2b542c;
-}
-
-.alert.alert-danger {
-	background-color: #f2dede;
-	border-color: #ebcccc;
-	color: #a94442;
-}
-
-.alert.alert-danger .alert-link {
-	color: #843534;
 }
 
 /* Searchwp ajax results */
