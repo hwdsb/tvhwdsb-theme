@@ -377,6 +377,11 @@ body.tax-vp_playlist .page-header {
 	padding-bottom: 0;
 }
 
+body.tax-vp_playlist .page-header {
+	margin-bottom: 1em;
+}
+
+
 body.author .tab-container {
 	margin-top: 2em;
 }
