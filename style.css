@@ -341,7 +341,14 @@ ul.tabs{
 	padding: 0px;
 }
 
-ul.tabs li{
+ul.subtabs {
+	border-bottom: 1px solid #fff;
+	margin-bottom: 2.5em;
+	margin-top: -3em;
+}
+
+ul.tabs li,
+ul.subtabs li {
 	background: none;
 	cursor: pointer;
 	display: inline-block;
@@ -352,6 +359,10 @@ ul.tabs li.current{
 	background: #fff;
 	border-radius: 6px 6px 0px 0px;
 	color: #222;
+}
+
+ul.subtabs li.current {
+	font-weight: bold;
 }
 
 .tab-content{
@@ -372,13 +383,16 @@ ul.tabs li.current{
 	font-weight: inherit;
 }
 
-body.author .page-header,
-body.tax-vp_playlist .page-header {
+body.author .page-header {
 	padding-bottom: 0;
 }
 
 body.tax-vp_playlist .page-header {
-	margin-bottom: 1em;
+	padding-bottom: .75em;
+}
+
+body.tax-vp_playlist .page-header {
+	margin-bottom: .5em;
 }
 
 

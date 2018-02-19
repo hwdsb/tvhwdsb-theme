@@ -32,3 +32,12 @@
 				<?php endif; ?>
 
 			</header><!-- .page-header -->
+
+			<?php if ( get_query_var( 'author_playlists' ) ) : ?>
+
+				<ul class="subtabs">
+					<li class="tab-link <?php echo ! get_query_var( 'author_collaborate' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ) . 'playlists/'; ?>">Created By</a></li>
+					<li class="tab-link <?php echo get_query_var( 'author_collaborate' ) ? 'current' : ''; ?>"><a href="<?php echo get_author_posts_url( get_query_var( 'vp_author_id' ) ? get_query_var( 'vp_author_id' ) : get_queried_object()->ID ) . 'playlists/collaborate/'; ?>">Collaborative</a></li>
+				</ul>
+
+			<?php endif; ?>
