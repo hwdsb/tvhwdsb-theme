@@ -124,7 +124,7 @@ function hwdsb_tv_enqueue_scripts() {
 	wp_enqueue_style( 'gazette-parent-style', get_template_directory_uri() . '/style.css' );
 
 	// Enqueue our stylesheet so we can bust CSS cache.
-	wp_enqueue_style( 'tvhwdsb', get_stylesheet_uri(), array(), '20170510' );
+	wp_enqueue_style( 'tvhwdsb', get_stylesheet_uri(), array(), '20180219' );
 }
 add_action( 'wp_enqueue_scripts', 'hwdsb_tv_enqueue_scripts' );
 
