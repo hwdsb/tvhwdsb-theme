@@ -21,6 +21,10 @@
 
 				<?php endif; ?>
 
+				<?php if ( is_tax( 'vp_playlist' ) ) : ?>
+					Created by <?php vp_the_playlist_data( 'author_link', array( 'term' => get_queried_object() ) ); ?>.
+				<?php endif; ?>
+
 				<?php if ( is_tax( 'vp_playlist' ) && 'private' !== get_term_meta( get_queried_object()->term_id, 'privacy', true ) ) : ?>
 
 					<div class="comment-navigation vp-playlist-embed"><a href="#" class="vp-playlist-embed" title="Embed" data-playlist-id="<?php echo (int) get_queried_object()->term_id; ?>"><span class="dashicons dashicons-share-alt2"></span></a></div>
