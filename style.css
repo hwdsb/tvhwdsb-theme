@@ -414,3 +414,9 @@ body.author.archive #message {
 .searchwp-live-search-result a {
 	color: #1b62a2;
 }
+
+.igrowl-title, .igrowl-message {
+	font-family: sans-serif;
+	font-size: .8em;
+	line-height: 1.3;
+}
