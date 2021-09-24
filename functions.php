@@ -201,29 +201,26 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 		$duration = hwdsb_get_the_duration( $post_id );
 	}
 
-	// Down in the ghetto...
+	// Set up thumb args.
 	if ( 'gazette-featured-content-thumbnail' === $size ) {
-		$size = '960x541';
-		$attr = ' class="attachment-gazette-featured-content-thumbnail size-gazette-featured-content-thumbnail wp-post-image"';
-
-		$thumb_size = 4;
+		$width  = 960;
+		$height = 541;
+		$class  = 'attachment-gazette-featured-content-thumbnail size-gazette-featured-content-thumbnail wp-post-image';
 	} else {
-		$size = '295x166';
-		$attr = '';
-
-		$thumb_size = 2;
+		$width  = 295;
+		$height = 166;
+		$class  = '';
 	}
 
-	if ( ! empty( $meta['vp_video_vimeo_thumbnails'] ) ) {
-		$thumbnail = maybe_unserialize( $meta['vp_video_vimeo_thumbnails'][0] );
-		$thumbnail = $thumbnail[ $thumb_size ]['link'];
-	} else {
-		$thumbnail = "https://i.vimeocdn.com/video/{$meta['vp_video_vimeo_picture_id'][0]}_{$size}.jpg?r=pad";
-	}
+	$thumbnail = vp_get_video_thumbnail( $post_id, [
+		'width'  => $width,
+		'height' => $height,
+		'class'  => $class
+	] );
 
 	//print_r( $GLOBALS['_wp_additional_image_sizes'][$size] );
 
-	return "<img src=\"{$thumbnail}\"{$attr}/><span class=\"duration\">{$duration}</span>";
+	return $thumbnail . "<span class=\"duration\">{$duration}</span>";
 }
 add_filter( 'post_thumbnail_html', 'hwdsb_vp_filter_thumbnail_html', 10, 5 );
 
@@ -276,18 +273,13 @@ function hwdsb_vp_jetpack_custom_image( $media, $post_id, $args ) {
 
 		// Use our custom thumbnail if available.
 		if ( ! empty( $meta['vp_video_vimeo_picture_id'][0] ) && ( 'vimeo' === $meta['vp_video_source'][0] || 'local' === $meta['vp_video_source'][0] ) ) {
-			if ( ! empty( $meta['vp_video_vimeo_thumbnails'] ) ) {
-				$thumbnail = maybe_unserialize( $meta['vp_video_vimeo_thumbnails'][0] );
-				$url = $thumbnail[2]['link'];
-			} else {
-				$url = "https://i.vimeocdn.com/video/{$meta['vp_video_vimeo_picture_id'][0]}_295x166.jpg?r=pad";
-			}
+			$url = vp_get_video_thumbnail( $post_id, [ 'return' => 'url' ] );
 		}
 
 		return array( array(
 			'type'  => 'image',
 			'from'  => 'custom_fallback',
-			'src'   => esc_url( $url ),
+			'src'   => $url,
 			'href'  => get_permalink( $post_id ),
 		) );
 	}
