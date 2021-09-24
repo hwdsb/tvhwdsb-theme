@@ -191,7 +191,7 @@ function hwdsb_vp_filter_thumbnail_html( $retval, $post_id, $post_thumbnail_id, 
 	}
 
 	// Should fallback to a generic thumbnail here.
-	if ( empty( $meta['vp_video_vimeo_picture_id'][0] ) ) {
+	if ( empty( $meta['vp_video_vimeo_picture_id'][0] ) || ! function_exists( 'vp_get_video_thumbnail' ) ) {
 		return $retval;
 	}
 
@@ -272,7 +272,7 @@ function hwdsb_vp_jetpack_custom_image( $media, $post_id, $args ) {
 		$meta = get_post_meta( $post_id );
 
 		// Use our custom thumbnail if available.
-		if ( ! empty( $meta['vp_video_vimeo_picture_id'][0] ) && ( 'vimeo' === $meta['vp_video_source'][0] || 'local' === $meta['vp_video_source'][0] ) ) {
+		if ( function_exists( 'vp_get_video_thumbnail' ) && ! empty( $meta['vp_video_vimeo_picture_id'][0] ) ) {
 			$url = vp_get_video_thumbnail( $post_id, [ 'return' => 'url' ] );
 		}
 
